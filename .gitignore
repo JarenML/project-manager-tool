@@ -1,0 +1,17 @@
+# Ignorar el entorno virtual
+env/
+
+# Ignorar archivos de Python compilados
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de configuración del editor
+.vscode/
+.idea/
+
+# Base de datos SQLite
+db.sqlite3
+
+# Archivos de dependencias y logs
+*.log
