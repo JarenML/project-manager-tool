@@ -11,7 +11,7 @@ from django.contrib.auth.models import User
 def registrar_usuario(request):
     if request.method == "GET":
         form = UserRegister()
-        return render(request, 'app1/login.html', {'form': form})
+        return render(request, 'app1/register.html', {'form': form})
     else:
         form = UserRegister(request.POST)
         if form.is_valid():
@@ -28,7 +28,7 @@ def registrar_usuario(request):
             login(request, user)
             return redirect('private_home')
 
-        return render(request, 'app1/login.html', {'form': form})
+        return render(request, 'app1/register.html', {'form': form})
 
 
 
