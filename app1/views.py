@@ -39,7 +39,17 @@ def registrar_usuario(request):
 def login_user(request):
     if request.method == "GET":
         form = AuthenticationForm()
-        return render(request, 'app1/login.html', {'form': form})
+    else:
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('private_home')
+        else:
+            messages.error(request, "Contraseña o usuario invalido")
+            form.errors.clear()
+
+    return render(request, 'app1/login.html', {'form': form})
 
 
 def private_home(request):
