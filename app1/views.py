@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.http import HttpResponse
 from .forms import UserRegister
 from django.contrib.auth.models import User
+from django.db.utils import IntegrityError
+
 
 # Create your views here.
 def registrar_usuario(request):
@@ -21,17 +23,16 @@ def registrar_usuario(request):
 
             if password1_cleaned != password2_cleaned:
                 messages.success(request, "Las contraseñas no coinciden")
-                return redirect('registrar_usuario')
-
-            user = User.objects.create_user(username=username_cleaned, password=password1_cleaned)
-            user.save()
-            login(request, user)
-            return redirect('private_home')
+                return render(request, 'app1/register.html', {'form': form})
+            try:
+                user = User.objects.create_user(username=username_cleaned, password=password1_cleaned)
+                user.save()
+                login(request, user)
+                return redirect('private_home')
+            except IntegrityError:
+                messages.success(request, "Error: Posible duplicidad en los datos")
 
         return render(request, 'app1/register.html', {'form': form})
-
-
-
 
 
 def private_home(request):
