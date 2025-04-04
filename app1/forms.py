@@ -19,3 +19,4 @@ class UserRegister(forms.Form):
                                 widget=forms.PasswordInput(attrs={'placeholder': 'Tu contraseña'}))
     password2 = forms.CharField(label='Confirma tu contraseña',
                                 widget=forms.PasswordInput(attrs={'placeholder': 'Tu confirmacion'}))
+
