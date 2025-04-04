@@ -51,6 +51,6 @@ def login_user(request):
 
     return render(request, 'app1/login.html', {'form': form})
 
-
+@login_required
 def private_home(request):
     return HttpResponse(f"Este es el panel privado: Bienvenido {request.user}")
