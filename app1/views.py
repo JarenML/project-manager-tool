@@ -53,4 +53,7 @@ def login_user(request):
 
 @login_required
 def private_home(request):
-    return HttpResponse(f"Este es el panel privado: Bienvenido {request.user}")
+    return render(request, 'private_home.html', {})
+
+def public_home(request):
+    return render(request, 'index.html')
