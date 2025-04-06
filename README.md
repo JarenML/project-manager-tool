@@ -1,4 +1,4 @@
-# project-manager-tool
+# PeriFlow
 
 Crea un propósito, sigue un flujo ordenado de manera minimalista y complétalo al 100%.
 > 🚧 Proyecto en desarrollo
