@@ -10,10 +10,7 @@ Crea un propósito, sigue un flujo ordenado de manera minimalista y complétalo 
 - [Tecnologías](#tecnologías)
 - [Instalación](#instalación)
 - [Uso](#uso)
-- [Estado del proyecto](#estado-del-proyecto)
-- [Por hacer](#por-hacer)
-- [Contribuciones](#contribuciones)
-- [Autor](#autor)
+- [Autores](#autores)
 
 ---
 
