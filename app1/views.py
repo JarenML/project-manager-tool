@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.http import HttpResponse
@@ -11,7 +11,7 @@ from django.db.utils import IntegrityError
 
 
 # Create your views here.
-def registrar_usuario(request):
+def register_user(request):
     if request.method == "GET":
         form = UserRegister()
         return render(request, 'app1/register.html', {'form': form})
@@ -57,3 +57,8 @@ def private_home(request):
 
 def public_home(request):
     return render(request, 'index.html')
+
+@login_required
+def logout_user(request):
+    logout(request)
+    return redirect('public_home') 
